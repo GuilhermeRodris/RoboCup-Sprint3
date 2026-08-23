@@ -141,38 +141,44 @@ public class Sprint3 {
                 if (aux > nprovas/2){
                     nclassificados[y] = equipes[x];
                     y++;
-                    aux = 0;
+
                 }
                 else {
                    classificados[z] =  equipes[x];
                    z++;
                 }
                 x++;
+                aux = 0;
             }
         }
 
 
 //----------------------- Registro e validação das notas de eficiencia energetica ------------------------------------//
+        double meio = -1, menor = 11;
 
         double[] placarefi = new double[nequipes];
 
-
-        for (i = 0; i < placarefi.length; ) {
-            System.out.print("Informe a nota de eficiencia energetica, entre 0 a 10 da equipe -> " + equipes[i]);
+        for (i = 0 , cont = 1; i < placarefi.length; ) {
+            System.out.print("Informe a" + cont + "nota de eficiencia energetica, entre 0 a 10 da equipe -> " + equipes[i]);
             eficiencia = sc.nextDouble();
-            if (eficiencia < 0 ) {
+            if (eficiencia < 0 || eficiencia > 10 ) {
                 System.out.println("Nota invalida, informe outra!");
             } else {
                 System.out.println("Nota registrado!");
-                placarefi[i] = eficiencia;
-                i++;
+
+                if (eficiencia < menor && eficiencia >= meio){
+                    meio = eficiencia;
+                }
+
+                if (cont == 3){
+                    cont = 0;
+                    i++;
+                } else {
+                    cont++;
+                }
+
             }
         }
-
-
-
-
-
     }
 }
 
