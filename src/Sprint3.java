@@ -186,8 +186,7 @@ public class Sprint3 {
 //----------------------- Registra a nota intermediária ---------------------------------------------------------------//
 
             eficienciaFinal[i] = notasEficiencia[1];
-
-            System.out.printf("Nota final de eficiência registrada: %.2f%n", eficienciaFinal[i]);
+            System.out.println("Nota final de eficiência registrada: " + String.format("%.2f", eficienciaFinal[i]));
         }
 
 //----------------------- Determina tamanho do vetor de equipes classificadas ---------------------------------------//
@@ -246,9 +245,9 @@ public class Sprint3 {
             System.out.println("Posição\tCódigo\tC\tP\tF\tEficiência\tPontuação");
             for (i = 0; i < classificados.length; i++) {
                 int indice = classificados[i];
-                System.out.printf("%d\t%d\t%d\t%d\t%d\t%.2f\t\t%d%n", i + 1, equipes[indice],
-                        semPenalidade[indice], comPenalidade[indice], falhas[indice],
-                        eficienciaFinal[indice], pontuacao[indice]);
+                System.out.println((i + 1) + "\t" + equipes[indice] + "\t" + semPenalidade[indice] + "\t"
+                        + comPenalidade[indice] + "\t" + falhas[indice] + "\t"
+                        + String.format("%.2f", eficienciaFinal[indice]) + "\t\t" + pontuacao[indice]);
             }
         }
 
@@ -299,7 +298,7 @@ public class Sprint3 {
 
         System.out.println("\n<----------------- Relatório final ------------------------>");
         if (classificados.length > 0) {
-            System.out.println("Pontuação média das equipes classificadas: " + String.format("%.2f%n", media));
+            System.out.println("Pontuação média das equipes classificadas: " + String.format("%.2f", media));
             System.out.println("Código da equipe campeã: " + equipes[classificados[0]] + " |_(°w°)_|");
         } else {
             System.out.println("Não há equipes classificadas para calcular a média.");
@@ -336,7 +335,7 @@ public class Sprint3 {
                     System.out.println("Percursos sem penalidade: " + semPenalidade[indiceEquipe]);
                     System.out.println("Percursos com penalidade: " + comPenalidade[indiceEquipe]);
                     System.out.println("Percursos não concluídos: " + falhas[indiceEquipe]);
-                    System.out.printf("Nota final de eficiência: %.2f%n", eficienciaFinal[indiceEquipe]);
+                    System.out.println("Nota final de eficiência: " + String.format("%.2f", eficienciaFinal[indiceEquipe]));
                     System.out.println("Pontuação total: " + pontuacao[indiceEquipe]);
 
                     if (desclassificada[indiceEquipe]) {
